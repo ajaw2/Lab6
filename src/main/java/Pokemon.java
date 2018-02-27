@@ -38,13 +38,13 @@ public class Pokemon {
      * The Pokemon type we are dealing with.
      */
     public PokemonType pokeType;
-
     /**
      * Number of hit points this Pokemon has.
      * <p>
      * Hit points can be initialized to between 1 and 50 and decrement as the game plays. The game
      * will end once hitPoints drops below 1.
      */
+
     private int hitPoints;
 
     /**

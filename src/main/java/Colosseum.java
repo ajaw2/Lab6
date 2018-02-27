@@ -103,8 +103,47 @@ public class Colosseum {
      *         <p>
      */
     public static Pokemon buildPokemon() {
-        Pokemon returnPokemon = null;
-        return returnPokemon;
+        Pokemon tempPokemon = new Pokemon();
+        Scanner s = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("Please select from the following pokemon types:");
+            System.out.println("1 - Electric Pokemon");
+            System.out.println("2 - Fire Pokemon");
+            System.out.println("3 - Water Pokemon");
+            choice = s.nextInt();
+            if (choice > 3 || choice < 1) {
+                System.out.println("Sorry, you must pick from either 1, 2,  or 3.");
+            }
+        } while (choice > 3 || choice  < 1);
+        System.out.println("Please name your Pokemon:");
+        String name = s.next();
+        int hitPoints;
+        do {
+            System.out.println("How many hit points will it have? (1-50):");
+            hitPoints = s.nextInt();
+            if (hitPoints > MAX_HIT_POINTS || hitPoints == 0) {
+                System.out.println("Sorry. Hit Points must be between 1 and 50.");
+            }
+        } while (hitPoints > MAX_HIT_POINTS || hitPoints == 0);
+        System.out.println("Split fifty points between attack level and defense level");
+        int attackLevel;
+        do {
+            System.out.println("Enter your attack level (1-49):");
+            attackLevel = s.nextInt();
+            if (attackLevel >= MAX_HIT_POINTS || attackLevel <= 0) {
+                System.out.println("Sorry. The attack level must be between 1-49");
+            }
+        } while (attackLevel >= MAX_HIT_POINTS || attackLevel <= 0);
+        int defenseLevel;
+        do {
+            System.out.println("Enter your defense level (1-" + (MAX_HIT_POINTS - attackLevel) + "):");
+            defenseLevel = s.nextInt();
+            if (defenseLevel > MAX_HIT_POINTS - attackLevel || defenseLevel <= 0) {
+                System.out.println("Sorry. The defense level must be between (1-" + (MAX_HIT_POINTS - attackLevel));
+            }
+        } while (defenseLevel > MAX_HIT_POINTS - attackLevel || defenseLevel <= 0);
+        return tempPokemon;
     }
 
     /**
